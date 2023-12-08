@@ -1,0 +1,311 @@
+@charset "utf-8";
+/* CSS Document */
+@media screen and (min-width: 769px){
+body {
+	width: 100%;
+	font-family:"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",
+	"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka,sans-serif;
+	background-image:url(../images/bg01_img.png);
+	background-repeat:repeat-x;
+	background-position:top center;
+	background-color:#83BF25;
+}
+
+img{
+	width:100%;
+	height:auto;
+}
+
+#wrapper {
+	width:90%;
+	max-width:780px;
+	height:auto;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	margin-bottom:1px;
+}
+#wrapper article {
+	text-align: center;
+}
+#wrapper header{
+	text-align: center;
+	margin:5% 0;
+	height:auto;
+}
+#wrapper header p{
+}
+
+a:hover{
+filter:alpha(opacity=90);
+opacity:0.9;
+}
+input:hover{
+filter:alpha(opacity=80);
+opacity:0.9;
+}
+#btn:hover{
+filter:alpha(opacity=90);
+opacity:0.9;
+}
+
+/*form-uranai(占いフォーム入力部分)-------------------*/
+.uranai-form{
+	background-image:url(../images/bg02_img.png);
+	background-repeat:repeat-x;
+	background-position:top center;
+	background-color:#F2B43F;
+	border:solid #DDAB14 4px;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-ms-border-radius:8px;
+	-webkit-border-radius:8px;
+	padding:15px 0;
+}
+
+.uranai-form p img{
+	width:60.45%;
+	text-align:center;
+}
+.form-flam01{
+	width:110px;
+	padding:5px;
+}
+.form-flam02{
+	width:110px;
+	padding:5px;
+}
+
+input.btn-uranau{
+	margin-top:30px;
+	width:60.45%;
+	max-width:291px;
+	min-width:200px;
+	text-align:center;
+}
+
+/*uranai-kekka(占い結果部分)-------------------*/
+.uranai-kekka{
+	background-color:#FF66CC;
+	border:solid 5px #FFFFFF;
+}
+.uranai-kekka-innner{
+	position:relative;
+}
+.uranai-kekka h1{
+	text-align:center;
+	margin:0 auto;
+	position: relative;
+	z-index:1;
+}
+
+.kekka{
+	width:100%;
+	position:absolute;
+	top:-8%;
+	z-index:2;
+}
+.kekka img{
+	width:22.38%;
+	max-width:171px;
+}
+
+/*背景光回転-------------------*/
+#animation-container {
+	animation: rotate 60s linear; 
+	animation-iteration-count: infinite; 
+	-webkit-animation: rotate 60s linear; /* Safari & Chrome */
+	-webkit-animation-iteration-count: infinite; /* Safari & Chrome */
+	-moz-animation: rotate 60s linear;
+	-moz-animation-iteration-count: infinite;
+	-ms-animation: rotate 60s linear; 
+	-ms-animation-iteration-count: infinite; 
+	margin:5%;
+	position:absolute;
+	top:10%;
+	z-index:0;
+}
+
+@keyframes rotate { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } 
+}
+@-webkit-keyframes rotate { /*Safari & Chrome */ 
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); } 
+}
+
+/*占いの結果詳細テキスト部分-------------------*/
+.uranai-text{
+	margin:0 20px;
+}
+.uranai-text img{
+	width: 40%;
+	min-width:180px;
+	margin:0 auto;
+}
+.uranai-text h2{
+	padding:5px;
+	background-color:#FFFFFF;
+}
+.uranai-text p{
+	line-height:1.6em;
+	margin:10px 0;
+	color:#FFFFFF;
+	font-size:1em;
+}
+.textLeft{
+	text-align:left;
+}
+.uranai-text p.fSizeLL{
+	font-size:2em;
+	font-weight:bolder;
+}
+/*もう一度占うボタン-------------------*/
+#btn{
+	text-align:center;
+	margin:0 24.23%;
+}
+
+
+
+/*Youtube-------------------*/
+.vWrap{
+position: relative;
+margin-bottom: 3em;
+padding-bottom: 50%;
+padding-top: 69px;
+overflow: hidden;
+}
+
+.vWrap iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+
+/*banner(バナー部分)-------------------*/
+.bannerIn02{
+	width:100%;
+}
+.bannerIn02 ul li{
+	margin-bottom:1.5%;
+	width:32.333%;
+	float:left;
+}
+    
+.bnrmagin{
+	margin:0 1.5%
+}
+
+.bannerIn03{
+	width:100%;
+}
+.bannerIn03 ul li{
+	margin-bottom:1.5%;
+	width:32.333%;
+	float:left;
+}
+.bannerIn03 ul li img{
+	width:80%;
+float: left;
+}
+
+/*footer（フッター部分）-------------------*/
+footer{
+	clear:both;
+	text-align: center;
+	background-color:#FFFFFF;
+}
+footer p{
+	border-top:solid 1px #999;
+	line-height:40px;
+	font-size:small;
+}
+
+/*ソーシャルボタンの調整-------------------*/
+#snsbtnArea{
+	margin-bottom:20px;
+	border-top:#FFFFFF dotted 1px;
+	border-bottom:#FFFFFF dotted 1px;
+	padding:15px 0;
+}
+#snsbtnArea-in{
+	display: flex;
+	justify-content: center;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.fb-like{
+	margin-left:0px !important;
+	margin-right:30px;
+}
+iframe.twitter-share-button {
+	margin: 0 20px;
+}
+
+.line{
+	width:90px;
+	float:right;
+}
+
+#___plusone_0 {
+width:75px !important;
+}
+
+/*調整-------------------*/
+
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt30{margin-top:30px;}
+
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mb25{margin-bottom:25px;}
+.mb30{margin-bottom:30px;}
+
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml25{margin-left:25px;}
+.ml30{margin-left:30px;}
+
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr25{margin-right:25px;}
+.mr30{margin-right:30px;}
+
+.m5{margin:5px;}
+.m10{margin:10px;}
+.m15{margin:15px;}
+
+.pt5{padding-top:5px;}
+.pt10{padding-top:10px;}
+.pt15{padding-top:15px;}
+.pt20{padding-top:20px;}
+.pt25{padding-top:25px;}
+
+.pb5{padding-bottom:5px;}
+.pb10{padding-bottom:10px;}
+.pb15{padding-bottom:15px;}
+.pb20{padding-bottom:20px;}
+.pb25{padding-bottom:25px;}
+
+.p5{padding:5px;}
+.p10{padding:10px;}
+.p15{padding:15px;}
+
+.fleft{float:left}
+}
