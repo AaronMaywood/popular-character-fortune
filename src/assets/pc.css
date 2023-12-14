@@ -76,9 +76,8 @@ opacity:0.9;
 	padding:5px;
 }
 
-input.btn-uranau{
+.btn-uranau{
 	margin-top:30px;
-	width:60.45%;
 	max-width:291px;
 	min-width:200px;
 	text-align:center;
@@ -100,9 +99,10 @@ input.btn-uranau{
 }
 
 .kekka{
+	text-align: center;
 	width:100%;
 	position:absolute;
-	top:-8%;
+	top: -70px;
 	z-index:2;
 }
 .kekka img{
