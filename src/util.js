@@ -59,7 +59,7 @@ export const database = [
 	{
 		title: "北条 義時",
 		img: {
-			src: "images/title_chara01.png",
+			src: "/images/title_chara01.png",
 			alt: "北条 義時 なんとかします",
 		},
 		basicInfo: `情熱的で意志が強く、どんな困難にも立ち向かい自分で道を切り開いていくキャラクター。
@@ -84,7 +84,7 @@ export const database = [
 	{
 		title: "トム・クルーズ",
 		img: {
-			src: "images/title_chara02.png",
+			src: "/images/title_chara02.png",
 			alt: "トム・クルーズ トップガン マーベリック",
 		},
 		basicInfo: `
@@ -116,7 +116,7 @@ export const database = [
 	{
 		title: "ゼレンスキー大統領",
 		img: {
-			src: "images/title_chara03.png",
+			src: "/images/title_chara03.png",
 			alt: "ゼレンスキー大統領 ウクライナに栄光あれ",
 		},
 		basicInfo: `
@@ -142,7 +142,7 @@ export const database = [
 	{
 		title: "エリザベス女王",
 		img: {
-			src: "images/title_chara04.png",
+			src: "/images/title_chara04.png",
 			alt: "エリザベス女王 また会いましょう",
 		},
 		basicInfo: `
@@ -168,7 +168,7 @@ export const database = [
 	{
 		title: "ヤクルト1000",
 		img: {
-			src: "images/title_chara05.png",
+			src: "/images/title_chara05.png",
 			alt: "ヤクルト1000 乳酸菌",
 		},
 		basicInfo: `
@@ -192,7 +192,7 @@ export const database = [
 	{
 		title: "イーロン・マスク",
 		img: {
-			src: "images/title_chara06.png",
+			src: "/images/title_chara06.png",
 			alt: "イーロン・マスク FREE AMERICA NOW",
 		},
 		basicInfo: `
@@ -218,7 +218,7 @@ export const database = [
 	{
 		title: "タッキー",
 		img: {
-			src: "images/title_chara07.png",
+			src: "/images/title_chara07.png",
 			alt: "タッキー 電撃退所！",
 		},
 		basicInfo: `
@@ -243,7 +243,7 @@ export const database = [
 	{
 		title: "ガーシー",
 		img: {
-			src: "images/title_chara08.png",
+			src: "/images/title_chara08.png",
 			alt: "ガーシー とことんまでたたかなあかん",
 		},
 		basicInfo: `
@@ -270,7 +270,7 @@ export const database = [
 	{
 		title: "村上宗隆",
 		img: {
-			src: "images/title_chara09.png",
+			src: "/images/title_chara09.png",
 			alt: "村上宗隆 村神様 降臨！",
 		},
 		basicInfo: `

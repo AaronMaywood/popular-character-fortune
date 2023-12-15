@@ -17,7 +17,7 @@ const fortune = computed(() => {
 		return {
 			title: "",
 			img: {
-				src: "images/title_chara01.png",
+				src: "/images/title_chara01.png",
 				alt: "",
 			},
 			basicInfo: ``,
@@ -38,7 +38,7 @@ const resultUrl = computed(() => {
 	<header>
 		<h1>
 			<img
-				src="images/h1_img01.png"
+				src="/images/h1_img01.png"
 				alt="HAPPY NEW YEAR"
 				width="780"
 				height="140"
@@ -50,7 +50,7 @@ const resultUrl = computed(() => {
 			<div class="uranai-kekka-innner">
 				<div class="kekka">
 					<img
-						src="images/title_img01.png"
+						src="/images/title_img01.png"
 						width="171"
 						height="84"
 						alt=""
@@ -66,7 +66,7 @@ const resultUrl = computed(() => {
 				</h1>
 				<div id="animation-container">
 					<img
-						src="images/bg_light.png"
+						src="/images/bg_light.png"
 						width="765"
 						height="764"
 						alt=""
@@ -75,12 +75,12 @@ const resultUrl = computed(() => {
 			</div>
 			<div class="uranai-text">
 				<h2>
-					<img src="images/h2_img01.gif" width="349" height="39" />
+					<img src="/images/h2_img01.gif" width="349" height="39" />
 				</h2>
 				<p class="textLeft" v-html="fortune.basicInfo"></p>
 				<h2>
 					<img
-						src="images/h2_img02.gif"
+						src="/images/h2_img02.gif"
 						width="349"
 						height="39"
 						alt=""
@@ -88,14 +88,14 @@ const resultUrl = computed(() => {
 				</h2>
 				<p class="textLeft" v-html="fortune.fortune"></p>
 				<h2>
-					<img src="images/h2_img03.gif" width="349" height="39" />
+					<img src="/images/h2_img03.gif" width="349" height="39" />
 				</h2>
 				<p class="fSizeLL" v-html="fortune.luckyWord"></p>
 			</div>
 		</section>
 		<button id="btn" type="button" @click="onClick">
 			<img
-				src="images/btn_img02.png"
+				src="/images/btn_img02.png"
 				width="402"
 				height="78"
 				alt=""

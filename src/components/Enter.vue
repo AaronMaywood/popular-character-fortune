@@ -106,7 +106,7 @@ function onSubmit(e) {
 			日
 		</p>
 		<button type="submit">
-			<img src="images/btn_img01.png" alt="占う" class="btn-uranau" />
+			<img src="/images/btn_img01.png" alt="占う" class="btn-uranau" />
 		</button>
 	</form>
 </template>
