@@ -23,7 +23,7 @@ body {
 	width: 100%;
 	font-family:"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",
 	"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka,sans-serif;
-	background-image:url(../images/bg01_img.png);
+	background-image:url(/images/bg01_img.png);
 	background-repeat:repeat-x;
 	background-position:top center;
 	background-color:#83BF25;
@@ -57,7 +57,7 @@ img{
 
 /*form-uranai(占いフォーム入力部分)-------------------*/
 .uranai-form{
-	background-image:url(../images/bg02_img.png);
+	background-image:url(/images/bg02_img.png);
 	background-repeat:repeat-x;
 	background-position:top center;
 	background-color:#F2B43F;
