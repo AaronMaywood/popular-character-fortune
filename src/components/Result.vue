@@ -17,7 +17,7 @@ const fortune = computed(() => {
 		return {
 			title: "",
 			img: {
-				src: "/images/title_chara01.png",
+				src: "./images/title_chara01.png",
 				alt: "",
 			},
 			basicInfo: ``,
