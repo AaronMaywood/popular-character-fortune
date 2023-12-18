@@ -2,9 +2,7 @@ export const year = 2023;
 
 export function GA4pageview(title, page) {
 	console.log('push GA4', title, page);
-	ga("set", "title", title);
-	ga("set", "page", page);
-	ga("send", "pageview");
+	gtag('config', 'G-PWX6MZCFL6', {'page_path':page});
 }
 
 export function updateTitle(title) {
