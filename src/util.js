@@ -1,8 +1,9 @@
 export const year = 2023;
+const GA4_ID = 'G-PWX6MZCFL6';	// index.htmlのGoogle tagで使用されているものと同じ値を設定
 
 export function GA4pageview(title, page) {
 	console.log('push GA4', title, page);
-	gtag('config', 'G-PWX6MZCFL6', {'page_path':page});
+	gtag('config', GA4_ID, {'page_path':page});
 }
 
 export function updateTitle(title) {
