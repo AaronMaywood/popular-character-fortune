@@ -1,5 +1,12 @@
 export const year = 2023;
 
+export function GA4pageview(title, page) {
+	console.debug('push GA4', title, page);
+	ga("set", "title", title);
+	ga("set", "page", page);
+	ga("send", "pageview");
+}
+
 export function updateTitle(title) {
 	document.querySelector("title").innerHTML = title;
 }

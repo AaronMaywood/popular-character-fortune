@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import { year, updateTitle, calcBirthNumber, database } from "./util.js";
+import { year, GA4pageview, updateTitle, calcBirthNumber, database } from "./util.js";
 import Home from "./components/Home.vue";
 import Enter from "./components/Enter.vue";
 import Result from "./components/Result.vue";
@@ -13,15 +13,18 @@ function fortune(e) {
 	goFortune(calcBirthNumber(e.year, e.month, e.day));
 }
 
-function goTop() {
+function goTop(isFirstView = false) {
 	isResult.value = false;
 	birthNumber.value = 0;
 	window.location.hash = "";
 	window.scroll(0, 0);
 	updateTitle(`${year}年流行りキャラ占い`);
+	if(!isFirstView){
+		GA4pageview(`${year}年流行りキャラ占い`,'/');
+	}
 }
 
-function goFortune(bn) {
+function goFortune(bn,isFirstView = false) {
 	birthNumber.value = bn;
 	isResult.value = true;
 	window.location.hash = birthNumber.value;
@@ -29,18 +32,24 @@ function goFortune(bn) {
 	updateTitle(
 		`${year}年流行りキャラ占い ${database[birthNumber.value - 1].title}`
 	);
+	if(!isFirstView){
+		GA4pageview(
+			`${year}年流行りキャラ占い ${database[birthNumber.value - 1].title}`,
+			`/${window.location.hash}`
+		);
+	}
 }
 
-function onHashChange() {
+function onHashChange(isFirstView = false) {
 	const hash = window.location.hash;
 	const bn = Number(hash.replace("#", ""));
 	// ハッシュの値が妥当な誕生数なら占い結果ページを表示
 	if (1 <= bn && bn <= 9) {
-		goFortune(bn);
+		goFortune(bn, isFirstView);
 	}
 	// トップページを表示
 	else {
-		goTop();
+		goTop(isFirstView);
 	}
 
 // TODO SNSButtons の動的セット
@@ -57,7 +66,7 @@ function onHashChange() {
 }
 
 window.addEventListener("hashchange", onHashChange);
-onHashChange();
+onHashChange(true);
 </script>
 
 <template>
