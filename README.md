@@ -12,12 +12,13 @@
         - https://localhost:5173/#01 〜 #09
 
 - 各占い結果画面からの「もう一度占う」ボタンのサポート
+
 - title の動的書き換え
     https://qiita.com/idani/items/5af667d5dcc69053f0d8
     →標準のVue.jsにその機能はない
     →document.querySelector('title') でDOMを取得して直接書き換えました
-- ブックマークから占い結果に直接行けるようにする
 
+- ブックマークから占い結果に直接行けるようにする
 
 - 入力画面から誕生日を入力し、「占う」をクリックして占い結果画面を表示する
     - 誕生日のバリデーション
@@ -38,8 +39,7 @@
 - [TODO] キャッシュを防ぐためにrnd を挿入する？
     print qq{<script>location.href='/result_2023_0${bn}.html?r=${rnd}';</script>};
 
-
-# SNSボタンまわりのコーディング
+## SNSボタンまわりのコーディング
 
 - [TODO] ページ切り替えしたとき、SNSボタンも切り替え
     - [TODO] SNSで共有できるようにする
@@ -101,3 +101,8 @@ u=https%3A%2F%2Fnenga.adjust.ne.jp%2F&amp;
 		</div>
 	</div>
 ```
+
+## Google Analytics 4
+
+- 最初にアクセスしたページ（トップページもしくは占い結果画面）だけでなく、ページ遷移した場合の pave_view が全て記録される
+    - GA4 の Debug View を用いて検証可能、そうするには index.html でGA4に対し {"debug_mode": true } とする

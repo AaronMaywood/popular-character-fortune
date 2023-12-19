@@ -4,7 +4,7 @@ const GA4_ID = "G-PWX6MZCFL6"; // index.htmlのGoogle tagで使用されてい�
 export function GA4pageview(title, page) {
 	gtag("event", "page_view", {
 		page_title: title,
-		page_location: page,
+		page_location: window.location.href,
 		send_to: GA4_ID,
 	});
 }
