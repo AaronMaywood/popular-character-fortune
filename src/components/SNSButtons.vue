@@ -2,7 +2,7 @@
 import { ref, onMounted, onBeforeUpdate, onUpdated } from "vue";
 import { base_url } from "../util.js";
 
-const data_url = ref(`${base_url}`);	// 共有する占いトップページのURL
+const data_url = ref(`${base_url}`); // 共有する占いトップページのURL
 
 /*
 // 動的にSNSシェアボタンを配置→うまくいっていない

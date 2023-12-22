@@ -12,7 +12,8 @@ export function GA4pageview(title, page) {
 
 export function updateOGP() {
 	// !important 動的に書き換えているが、OGPを解釈するクローラーがJavaScriptを実行しないのであれば効果がない. 従って index.html に埋め込んだOGPは手動で書き換えることを推奨.
-	document.querySelector('[property="og:image"]').content = `${base_url}images/ogp.png`;
+	document.querySelector('[property="og:image"]').content =
+		`${base_url}images/ogp.png`;
 	document.querySelector('[property="og:url"]').content = base_url;
 }
 

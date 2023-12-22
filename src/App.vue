@@ -1,6 +1,13 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import { updateOGP, year, GA4pageview, updateTitle, calcBirthNumber, database } from "./util.js";
+import {
+	updateOGP,
+	year,
+	GA4pageview,
+	updateTitle,
+	calcBirthNumber,
+	database,
+} from "./util.js";
 import Home from "./components/Home.vue";
 import Enter from "./components/Enter.vue";
 import Result from "./components/Result.vue";
@@ -10,7 +17,7 @@ const thisYear = ref(year);
 const isResult = ref(false);
 const birthNumber = ref(0);
 
-onMounted(()=> updateOGP());
+onMounted(() => updateOGP());
 
 function fortune(e) {
 	goFortune(calcBirthNumber(e.year, e.month, e.day));
@@ -22,12 +29,12 @@ function goTop(isFirstView = false) {
 	window.location.hash = "";
 	window.scroll(0, 0);
 	updateTitle(`${year}年流行りキャラ占い`);
-	if(!isFirstView){
-		GA4pageview(`${year}年流行りキャラ占い`,'/');
+	if (!isFirstView) {
+		GA4pageview(`${year}年流行りキャラ占い`, "/");
 	}
 }
 
-function goFortune(bn,isFirstView = false) {
+function goFortune(bn, isFirstView = false) {
 	birthNumber.value = bn;
 	isResult.value = true;
 	window.location.hash = birthNumber.value;
@@ -35,9 +42,11 @@ function goFortune(bn,isFirstView = false) {
 	updateTitle(
 		`${year}年流行りキャラ占い ${database[birthNumber.value - 1].title}`
 	);
-	if(!isFirstView){
+	if (!isFirstView) {
 		GA4pageview(
-			`${year}年流行りキャラ占い ${database[birthNumber.value - 1].title}`,
+			`${year}年流行りキャラ占い ${
+				database[birthNumber.value - 1].title
+			}`,
 			`/${window.location.hash}`
 		);
 	}
@@ -55,14 +64,14 @@ function onHashChange(isFirstView = false) {
 		goTop(isFirstView);
 	}
 
-// TODO SNSButtons の動的セット
-/*
+	// TODO SNSButtons の動的セット
+	/*
 	const sns = document.querySelector('#wheresnsbuttons')
 	const snsbuttons = Vue.extend(SNSButtons)
 	console.log(new snsbuttons)
 	*/
 
-/*
+	/*
 	const 
 		<SNSButtons />
 		*/
@@ -74,7 +83,7 @@ onHashChange(true);
 
 <template>
 	<div id="wrapper">
-		<!-- TODO Home に直接 v-if や v-show を設定できない -->
+		<!-- TODO HomeやResultコンポーネントに直接 v-if や v-show を設定できないので（できるはずなのだが...）仕方なくその親のdivを作成してそこに指定 -->
 		<div v-show="!isResult">
 			<Home>
 				<Enter @fortune="fortune" />
@@ -177,6 +186,6 @@ onHashChange(true);
 		</article>
 	</div>
 	<footer>
-		<p>&copy; {{thisYear}} ADjust Co.,Ltd. All Right Reserved.</p>
+		<p>&copy; {{ thisYear }} ADjust Co.,Ltd. All Right Reserved.</p>
 	</footer>
 </template>
