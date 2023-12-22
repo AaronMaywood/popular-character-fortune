@@ -1,0 +1,11 @@
+├── index.html ... 全ページで使用するHTMLテンプレートです.
+├── public
+│   └── images
+└── src
+    ├── App.vue ... HTMLのテンプレートが格納されています. お歳暮ん」リンク削除等
+    ├── components
+    │   ├── Enter.vue
+    │   ├── Home.vue
+    │   ├── Result.vue
+    │   └── SNSButtons.vue
+    └── util.js	... 年や占いテキストが格納されています

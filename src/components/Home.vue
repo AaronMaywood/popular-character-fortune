@@ -1,9 +1,16 @@
+<script setup>
+import { ref } from "vue";
+import { year } from "../util.js";
+const alt1 = ref(`HAPPY NEW YEAR ${year}!!`);
+const alt2 = ref(`${year}年のあなたの運勢がわかる！！「流行りキャラ占い」`);
+</script>
+
 <template>
 	<header>
 		<h1>
 			<img
 				src="/images/h1_img01.png"
-				alt="HAPPY NEW YEAR 2023!!"
+				:alt="alt1"
 				width="780"
 				height="140"
 			/>
@@ -19,7 +26,7 @@
 				src="/images/text_img.png"
 				width="780"
 				height="180"
-				alt="年の初めはアジャスト「流行りキャラ占い」で今年の運勢を占ってみませんか？あなたはどんな「流行キャラ」?"
+				alt="年の初めはアジャスト「流行りキャラ占い」で今年の運勢を占ってみませんか？あなたはどんな「流行りキャラ」?"
 			/>
 		</p>
 	</header>
@@ -31,7 +38,7 @@
 					src="/images/title_img.png"
 					width="770"
 					height="246"
-					alt="2023年のあなたの運勢がわかる！！「流行りキャラ占い」"
+					:alt="alt2"
 				/>
 			</h1>
 			<p class="mb20">

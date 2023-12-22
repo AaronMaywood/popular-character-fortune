@@ -13,18 +13,18 @@ function onClick() {
 }
 
 const fortune = computed(() => {
-	if( props.birthNumber === 0){
+	if (props.birthNumber === 0) {
 		return {
 			title: "",
 			img: {
-				src: "./images/title_chara01.png",
+				src: "",
 				alt: "",
 			},
 			basicInfo: ``,
 			fortune: ``,
 			luckyWord: ``,
-		}
-	}else{
+		};
+	} else {
 		return database[props.birthNumber - 1];
 	}
 });
@@ -75,7 +75,12 @@ const resultUrl = computed(() => {
 			</div>
 			<div class="uranai-text">
 				<h2>
-					<img src="/images/h2_img01.gif" width="349" height="39" />
+					<img
+						src="/images/h2_img01.gif"
+						width="349"
+						height="39"
+						alt=""
+					/>
 				</h2>
 				<p class="textLeft" v-html="fortune.basicInfo"></p>
 				<h2>
@@ -88,7 +93,12 @@ const resultUrl = computed(() => {
 				</h2>
 				<p class="textLeft" v-html="fortune.fortune"></p>
 				<h2>
-					<img src="/images/h2_img03.gif" width="349" height="39" />
+					<img
+						src="/images/h2_img03.gif"
+						width="349"
+						height="39"
+						alt=""
+					/>
 				</h2>
 				<p class="fSizeLL" v-html="fortune.luckyWord"></p>
 			</div>

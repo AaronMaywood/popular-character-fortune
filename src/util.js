@@ -1,5 +1,6 @@
+export const base_url = "http://cf161188.cloudfree.jp/nenga/";
 export const year = 2023;
-const GA4_ID = "G-PWX6MZCFL6"; // index.htmlのGoogle tagで使用されているものと同じ値を設定
+const GA4_ID = "G-GGQJL18WKL"; // index.htmlのGoogle tagで使用されているものと同じ値を設定
 
 export function GA4pageview(title, page) {
 	gtag("event", "page_view", {
@@ -7,6 +8,12 @@ export function GA4pageview(title, page) {
 		page_location: window.location.href,
 		send_to: GA4_ID,
 	});
+}
+
+export function updateOGP() {
+	// !important 動的に書き換えているが、OGPを解釈するクローラーがJavaScriptを実行しないのであれば効果がない. 従って index.html に埋め込んだOGPは手動で書き換えることを推奨.
+	document.querySelector('[property="og:image"]').content = `${base_url}images/ogp.png`;
+	document.querySelector('[property="og:url"]').content = base_url;
 }
 
 export function updateTitle(title) {

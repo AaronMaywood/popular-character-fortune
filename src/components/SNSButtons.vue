@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUpdate, onUpdated } from "vue";
+import { base_url } from "../util.js";
+
+const data_url = ref(`${base_url}`);	// 共有する占いトップページのURL
 
 /*
 // 動的にSNSシェアボタンを配置→うまくいっていない
@@ -112,7 +115,7 @@ onUpdated(() => {
 			<!-- LINE Send Button -->
 			<div
 				class="line-it-button"
-				data-url="https://nenga.adjust.ne.jp/"
+				:data-url="data_url"
 				data-lang="ja"
 				data-type="share-a"
 				data-env="REAL"
@@ -126,7 +129,7 @@ onUpdated(() => {
 			<a
 				href="https://twitter.com/share?ref_src=twsrc%5Etfw"
 				data-text="流行りキャラ占い"
-				data-url="https://nenga.adjust.ne.jp/"
+				:data-url="data_url"
 				class="twitter-share-button"
 				data-show-count="false"
 				>Tweet</a
@@ -134,7 +137,7 @@ onUpdated(() => {
 			<!-- Facebook Share Button -->
 			<div
 				class="fb-share-button"
-				data-href="https://nenga.adjust.ne.jp/"
+				:data-href="data_url"
 				data-layout="button"
 			></div>
 		</div>

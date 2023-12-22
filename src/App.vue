@@ -1,13 +1,16 @@
 <script setup>
-import { ref, computed } from "vue";
-import { year, GA4pageview, updateTitle, calcBirthNumber, database } from "./util.js";
+import { ref, computed, onMounted } from "vue";
+import { updateOGP, year, GA4pageview, updateTitle, calcBirthNumber, database } from "./util.js";
 import Home from "./components/Home.vue";
 import Enter from "./components/Enter.vue";
 import Result from "./components/Result.vue";
 import SNSButtons from "./components/SNSButtons.vue";
 
+const thisYear = ref(year);
 const isResult = ref(false);
 const birthNumber = ref(0);
+
+onMounted(()=> updateOGP());
 
 function fortune(e) {
 	goFortune(calcBirthNumber(e.year, e.month, e.day));
@@ -174,6 +177,6 @@ onHashChange(true);
 		</article>
 	</div>
 	<footer>
-		<p>&copy; 2023 ADjust Co.,Ltd. All Right Reserved.</p>
+		<p>&copy; {{thisYear}} ADjust Co.,Ltd. All Right Reserved.</p>
 	</footer>
 </template>

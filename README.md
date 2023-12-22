@@ -106,3 +106,19 @@ u=https%3A%2F%2Fnenga.adjust.ne.jp%2F&amp;
 
 - 最初にアクセスしたページ（トップページもしくは占い結果画面）だけでなく、ページ遷移した場合の pave_view が全て記録される
     - GA4 の Debug View を用いて検証可能、そうするには index.html でGA4に対し {"debug_mode": true } とする
+
+## 更新業務に関係するソースコード
+
+```
+├── index.html ... GA4タグ、OGPを調整する場合はこちら
+├── public
+│   └── images ... 画像素材の差し替え
+└── src
+    ├── App.vue ... HTMLのテンプレートを修正する場合はこちら
+    ├── components
+    │   ├── Enter.vue ... （いじりません）
+    │   ├── Home.vue ... （いじりません）
+    │   ├── Result.vue ... （いじりません）
+    │   └── SNSButtons.vue ... （いじりません）
+    └── util.js	... 年や占いテキスト等のデータを更新
+```
