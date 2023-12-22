@@ -83,15 +83,10 @@ onHashChange(true);
 
 <template>
 	<div id="wrapper">
-		<!-- TODO HomeやResultコンポーネントに直接 v-if や v-show を設定できないので（できるはずなのだが...）仕方なくその親のdivを作成してそこに指定 -->
-		<div v-show="!isResult">
-			<Home>
-				<Enter @fortune="fortune" />
-			</Home>
-		</div>
-		<div v-show="isResult">
-			<Result :birthNumber="birthNumber" @goTop="goTop" />
-		</div>
+		<Home v-show="!isResult">
+			<Enter @fortune="fortune" />
+		</Home>
+		<Result v-show="isResult" :birthNumber="birthNumber" @goTop="goTop" />
 		<SNSButtons :birthNumber="birthNumber" />
 		<article class="banner clearfix mb10">
 			<section class="bannerIn01">
