@@ -122,3 +122,58 @@ u=https%3A%2F%2Fnenga.adjust.ne.jp%2F&amp;
     │   └── SNSButtons.vue ... （いじりません）
     └── util.js	... 年や占いテキスト等のデータを更新
 ```
+
+## ユニットテスト
+
+### Jest のインストール
+
+https://jestjs.io/ja/docs/getting-started
+https://gattino.jp/jest-esm/
+
+```
+npm install --save-dev jest  
+npm install --save-dev @babel/core @babel/preset-env 
+```
+
+```babel.config.js
+module.exports = {
+    presets: [
+        [
+            '@babel/preset-env',
+            {
+                'modules': 'false',
+                'useBuiltIns': 'usage',
+                'targets': '> 0.25%, not dead',
+            }
+        ]
+    ],
+    env: {
+        test: {
+            presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+        },
+    },
+};
+```
+
+### テストファイルの用意
+
+- ファイル名が *.test.js となるようなファイルを用意
+    - src/util.test.js (util.js を検証したいので）
+- テストの中身
+    ```
+    import { calcBirthNumber } from './util.js';
+
+    test('2000-1-1', () => {
+        expect(calcBirthNumber(2000,1,1)).toBe(4);
+    })
+    ```
+
+### テストの実施
+
+```
+npm test
+```
+で実施。
+
+*.test.js を検索して、その中に定義されている試験を自動的に実施し、レポートしてくれる。
+
