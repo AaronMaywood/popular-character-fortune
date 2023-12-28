@@ -86,7 +86,7 @@ onHashChange(true);
 		<Home v-show="!isResult">
 			<Enter @fortune="fortune" />
 		</Home>
-		<Result v-show="isResult" :birthNumber="birthNumber" @goTop="goTop" />
+		<Result v-show="isResult" :birthNumber="birthNumber" @go-top="goTop" />
 		<SNSButtons :birthNumber="birthNumber" />
 		<article class="banner clearfix mb10">
 			<section class="bannerIn01">

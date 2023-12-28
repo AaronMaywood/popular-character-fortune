@@ -9,7 +9,7 @@ const props = defineProps({
 const emit = defineEmits(["go-top"]);	// goTop の代わりにこう書く（こうしないと認識されないので注意）
 
 function onClick() {
-	emit("goTop");
+	emit("go-top");
 }
 
 const fortune = computed(() => {
