@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { isValidDateFormat } from "../util.js";
-const emit = defineEmits(["fortune"]);
+const emit = defineEmits(["go-fortune"]);
 
 const errorMessage = ref("");
 
@@ -23,7 +23,7 @@ function onSubmit(e) {
 	} else {
 		errorMessage.value = "";
 		// 占い結果に遷移
-		emit("fortune", {
+		emit("go-fortune", {
 			year: year.value,
 			month: month.value,
 			day: day.value,

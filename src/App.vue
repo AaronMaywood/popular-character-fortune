@@ -84,7 +84,7 @@ onHashChange(true);
 <template>
 	<div id="wrapper">
 		<Home v-show="!isResult">
-			<Enter @fortune="fortune" />
+			<Enter @go-fortune="fortune" />
 		</Home>
 		<Result v-show="isResult" :birthNumber="birthNumber" @go-top="goTop" />
 		<SNSButtons :birthNumber="birthNumber" />
