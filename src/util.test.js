@@ -1,4 +1,4 @@
-import { calcBirthNumber } from './util.js';
+import { calcBirthNumber, isValidDateFormat } from './util.js';
 
 test('2000-1-1 誕生数4', () => {
 	expect(calcBirthNumber(2000,1,1)).toBe(4);
@@ -36,3 +36,10 @@ test('2000-1-9 誕生数３', () => {
 	expect(calcBirthNumber(2000,1,9)).toBe(3);
 })
 
+test('妥当な日付:2000-2-29', () => {
+	expect(isValidDateFormat('2000-02-29')).toBe(true);
+})
+
+test('妥当でない日付:2001-2-29', () => {
+	expect(isValidDateFormat('2001-02-29')).toBe(false);
+})
