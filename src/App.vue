@@ -1,23 +1,20 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
+import { useGlobalStore } from "@/stores/global";
+const store = useGlobalStore();
+const { year, base_url, database } = store
 import {
-	updateOGP,
-	year,
 	GA4pageview,
 	updateTitle,
 	calcBirthNumber,
-	database,
 } from "./util.js";
 import Home from "./components/Home.vue";
 import Enter from "./components/Enter.vue";
 import Result from "./components/Result.vue";
 import SNSButtons from "./components/SNSButtons.vue";
 
-const thisYear = ref(year);
 const isResult = ref(false);
 const birthNumber = ref(0);
-
-onMounted(() => updateOGP());
 
 function fortune(e) {
 	goFortune(calcBirthNumber(e.year, e.month, e.day));
@@ -28,9 +25,9 @@ function goTop(isFirstView = false) {
 	birthNumber.value = 0;
 	window.location.hash = "";
 	window.scroll(0, 0);
-	updateTitle(`${year}年流行りキャラ占い`);
+	updateTitle(`${year.value}年流行りキャラ占い`);
 	if (!isFirstView) {
-		GA4pageview(`${year}年流行りキャラ占い`, "/");
+		GA4pageview(`${year.value}年流行りキャラ占い`, "/");
 	}
 }
 
@@ -40,11 +37,11 @@ function goFortune(bn, isFirstView = false) {
 	window.location.hash = birthNumber.value;
 	window.scroll(0, 0);
 	updateTitle(
-		`${year}年流行りキャラ占い ${database[birthNumber.value - 1].title}`
+		`${year.value}年流行りキャラ占い ${database[birthNumber.value - 1].title}`
 	);
 	if (!isFirstView) {
 		GA4pageview(
-			`${year}年流行りキャラ占い ${
+			`${year.value}年流行りキャラ占い ${
 				database[birthNumber.value - 1].title
 			}`,
 			`/${window.location.hash}`
@@ -181,6 +178,6 @@ onHashChange(true);
 		</article>
 	</div>
 	<footer>
-		<p>&copy; {{ thisYear }} ADjust Co.,Ltd. All Right Reserved.</p>
+		<p>&copy; {{ year }} ADjust Co.,Ltd. All Right Reserved.</p>
 	</footer>
 </template>

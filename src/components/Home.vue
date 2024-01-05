@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from "vue";
-import { year } from "../util.js";
-const alt1 = ref(`HAPPY NEW YEAR ${year}!!`);
-const alt2 = ref(`${year}年のあなたの運勢がわかる！！「流行りキャラ占い」`);
+import { useGlobalStore } from "@/stores/global";
+const store = useGlobalStore()
+const alt1 = ref(`HAPPY NEW YEAR ${store.year.value}!!`);
+const alt2 = ref(`${store.year.value}年のあなたの運勢がわかる！！「流行りキャラ占い」`);
 </script>
 
 <template>

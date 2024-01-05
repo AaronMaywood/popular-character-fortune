@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed } from "vue";
-import { database } from "../util.js";
+import { useGlobalStore } from "@/stores/global";
+const store = useGlobalStore();
+const database = store.database
 
 const props = defineProps({
 	birthNumber: Number,

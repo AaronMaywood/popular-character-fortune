@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUpdate, onUpdated } from "vue";
-import { base_url } from "../util.js";
+import { useGlobalStore } from '@/stores/global'
+const store = useGlobalStore()
+const base_url = store.base_url
 
 const data_url = ref(`${base_url}`); // 共有する占いトップページのURL
 
