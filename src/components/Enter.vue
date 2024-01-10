@@ -5,12 +5,11 @@ const emit = defineEmits(["go-fortune"]);
 
 const errorMessage = ref("");
 
-function onSubmit(e) {
-	// TODO v-model によってきれいに書ける
-	const year = document.querySelector("#year");
-	const month = document.querySelector("#month");
-	const day = document.querySelector("#day");
+const year = ref('')
+const month = ref('1')
+const day = ref('1')
 
+function onSubmit(e) {
 	// .padStart() は 0埋めするのに使用
 	// See:
 	// https://gray-code.com/javascript/fill-numbers-with-zeros/
@@ -40,7 +39,7 @@ function onSubmit(e) {
 			<input
 				required="required"
 				type="text"
-				id="year"
+				v-model="year"
 				name="year"
 				class="form-flam01"
 				placeholder="西暦4桁 例)1970"
@@ -51,7 +50,7 @@ function onSubmit(e) {
 		<p class="mb15">
 			<select
 				required="required"
-				id="month"
+				v-model="month"
 				name="month"
 				class="form-flam02"
 			>
@@ -71,7 +70,7 @@ function onSubmit(e) {
 			月
 		</p>
 		<p>
-			<select required="required" id="day" name="day" class="form-flam02">
+			<select required="required" v-model="day" name="day" class="form-flam02">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
