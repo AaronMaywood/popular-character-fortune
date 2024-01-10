@@ -1,4 +1,5 @@
 // .vue 以外からPinia を使う方法 ... setActivePinia() を実行する必要がある(これは本来 main.js 側で実施していること)
+// https://pinia.vuejs.org/cookbook/testing.html を参考にした
 // このようにしておけば Jest のユニットテストも実施できる
 import { setActivePinia, createPinia } from 'pinia'
 import { useGlobalStore } from './stores/global';	// Jest でテストする時にはパスに記号 @ を使うことができない

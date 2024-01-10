@@ -2,7 +2,6 @@
 import { ref, computed } from "vue";
 import { useGlobalStore } from "@/stores/global";
 const store = useGlobalStore();
-const database = store.database
 
 const props = defineProps({
 	birthNumber: Number,
@@ -27,7 +26,7 @@ const fortune = computed(() => {
 			luckyWord: ``,
 		};
 	} else {
-		return database[props.birthNumber - 1];
+		return store.database[props.birthNumber - 1];
 	}
 });
 

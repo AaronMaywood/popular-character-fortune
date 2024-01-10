@@ -6,24 +6,6 @@ export const useGlobalStore = defineStore("global", () => {
 	const year = ref(2023);
 	const GA4_ID = ref("G-GGQJL18WKL"); // index.htmlのGoogle tagで使用されているものと同じ値を設定
 
-	// TODO
-	const fortune = computed(() => {
-		if (props.birthNumber === 0) {
-			return {
-				title: "",
-				img: {
-					src: "",
-					alt: "",
-				},
-				basicInfo: ``,
-				fortune: ``,
-				luckyWord: ``,
-			};
-		} else {
-			return database[props.birthNumber - 1];
-		}
-	});
-
 	const database = ref([
 		// 誕生数1
 		{
@@ -264,11 +246,5 @@ export const useGlobalStore = defineStore("global", () => {
 		},
 	]);
 
-	/*
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-	*/
 	return { base_url, year, GA4_ID, database };
 });
