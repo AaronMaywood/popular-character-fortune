@@ -8,7 +8,9 @@ setActivePinia(createPinia())
 const store = useGlobalStore();
 
 // SPAにおいてページ遷移したことをGA4に伝える（=新規のpage_viewイベントを生成する）
-export function GA4pageview(title, page) {
+export function GA4pageview() {
+	const title = document.querySelector("title").innerHTML
+
 	// gtag 関数はindex.htmlで読み込んでいるGoogle Analytics の gtag/js が提供する関数
 	gtag("event", "page_view", {
 		page_title: title,
@@ -16,19 +18,6 @@ export function GA4pageview(title, page) {
 		send_to: store.GA4_ID,
 	});
 }
-
-/*
-export function updateOGP() {
-	// !!important!!
-	// この関数は使用せず、index.html の中のOGPを直接変更すること
-	// 理由:
-	// この関数を使用してOGPを動的に書き換えているが、OGPのクローラーはJavaScriptを実行しないため、この効果はない
-	// 従って index.html に埋め込んだOGPを手動で書き換えること
-	document.querySelector('[property="og:image"]').content =
-		`${base_url}images/ogp.png`;
-	document.querySelector('[property="og:url"]').content = base_url;
-}
-*/
 
 export function updateTitle(title) {
 	document.querySelector("title").innerHTML = title;

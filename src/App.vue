@@ -1,90 +1,12 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import { useGlobalStore } from "@/stores/global";
-const store = useGlobalStore();
-const { year, base_url, database } = store
-import {
-	GA4pageview,
-	updateTitle,
-	calcBirthNumber,
-} from "./util.js";
-import Home from "./components/Home.vue";
-import Enter from "./components/Enter.vue";
-import Result from "./components/Result.vue";
-import SNSButtons from "./components/SNSButtons.vue";
-
-const isResult = ref(false);
-const birthNumber = ref(0);
-
-function fortune(e) {
-	goFortune(calcBirthNumber(e.year, e.month, e.day));
-}
-
-function goTop(isFirstView = false) {
-	isResult.value = false;
-	birthNumber.value = 0;
-	window.location.hash = "";
-	window.scroll(0, 0);
-	updateTitle(`${year.value}年流行りキャラ占い`);
-	if (!isFirstView) {
-		GA4pageview(`${year.value}年流行りキャラ占い`, "/");
-	}
-}
-
-function goFortune(bn, isFirstView = false) {
-	birthNumber.value = bn;
-	isResult.value = true;
-	window.location.hash = birthNumber.value;
-	window.scroll(0, 0);
-	updateTitle(
-		`${year.value}年流行りキャラ占い ${database[birthNumber.value - 1].title}`
-	);
-	if (!isFirstView) {
-		GA4pageview(
-			`${year.value}年流行りキャラ占い ${
-				database[birthNumber.value - 1].title
-			}`,
-			`/${window.location.hash}`
-		);
-	}
-}
-
-function onHashChange(isFirstView = false) {
-	const hash = window.location.hash;
-	const bn = Number(hash.replace("#", ""));
-	// ハッシュの値が妥当な誕生数なら占い結果ページを表示
-	if (1 <= bn && bn <= 9) {
-		goFortune(bn, isFirstView);
-	}
-	// トップページを表示
-	else {
-		goTop(isFirstView);
-	}
-
-	// TODO SNSButtons の動的セット
-	/*
-	const sns = document.querySelector('#wheresnsbuttons')
-	const snsbuttons = Vue.extend(SNSButtons)
-	console.log(new snsbuttons)
-	*/
-
-	/*
-	const 
-		<SNSButtons />
-		*/
-}
-
-window.addEventListener("hashchange", onHashChange);
-onHashChange(true);
+import SNSButtons from '@/components/SNSButtons.vue';
+import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
 	<div id="wrapper">
-		<Home v-show="!isResult">
-			<Enter @go-fortune="fortune" />
-		</Home>
-		<Result v-show="isResult" :birthNumber="birthNumber" @go-top="goTop" />
-		<SNSButtons :birthNumber="birthNumber" />
+		<router-view />
+		<SNSButtons />
 		<article class="banner clearfix mb10">
 			<section class="bannerIn01">
 				<p class="mb10">
@@ -177,7 +99,5 @@ onHashChange(true);
 			</section>
 		</article>
 	</div>
-	<footer>
-		<p>&copy; {{ year }} ADjust Co.,Ltd. All Right Reserved.</p>
-	</footer>
+	<Footer />
 </template>

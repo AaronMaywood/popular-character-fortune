@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from "vue";
-import { isValidDateFormat } from "../util.js";
+import { isValidDateFormat } from "@/util";
 const emit = defineEmits(["go-fortune"]);
 
 const errorMessage = ref("");
 
 function onSubmit(e) {
+	// TODO v-model によってきれいに書ける
 	const year = document.querySelector("#year");
 	const month = document.querySelector("#month");
 	const day = document.querySelector("#day");
