@@ -4,12 +4,14 @@ import TryAgainButton from "@/components/TryAgainButton.vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { useGlobalStore } from "@/stores/global";
+import { setTitleAndPushGA4 } from "@/util";
 const route = useRoute();
 const store = useGlobalStore();
 
 const isError = ref(true);
 
-// 算出元のroute.params.bn はリアクティブ値ではないのでcompouted() とはしない
+// 誕生日を入力できるHomeを経由せずこのページを直接表示した場合、store.birthNumber は利用できない. URLから取得できる値であるroute.params.birthNumber を使用する必要がある
+// 算出元のroute.params.birthNumber はリアクティブ値ではないのでcompouted() とはしない
 const fortune = (() => {
 	const birthNumber = Number(route.params.birthNumber);
 
@@ -20,8 +22,10 @@ const fortune = (() => {
 		9 < birthNumber
 	) {
 		isError.value = true;
+		setTitleAndPushGA4(`${store.year}年流行りキャラ占い 誕生数エラー:${birthNumber}`);
 	} else {
 		isError.value = false;
+		setTitleAndPushGA4(`${store.year}年流行りキャラ占い ${store.database[birthNumber - 1].title}`);
 		return store.database[birthNumber - 1];
 	}
 })();

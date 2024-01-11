@@ -16,6 +16,8 @@ const routes = [
 	},
 	{
 		// https://router.vuejs.org/guide/essentials/dynamic-matching.html#Catch-all-404-Not-found-Route
+		// 本来ならステータスコードも404にすべきであるが、フロントエンドではできない
+		// https://stackoverflow.com/questions/62169022/how-do-i-change-status-code-with-vue-router
 		path: "/:pathMatch(.*)",
 		name: "404NotFound",
 		component: NotFound,

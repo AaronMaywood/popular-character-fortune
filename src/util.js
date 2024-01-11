@@ -7,6 +7,19 @@ setActivePinia(createPinia())
 
 const store = useGlobalStore();
 
+// 初回表示かそうでないかを判断し、title要素への設定とGoogle Analytics 4 への通達を行う
+export function setTitleAndPushGA4(title){
+	setTitle(title);
+	if (sessionStorage.getItem('visit')) {
+		// console.log('アクセス済み');
+		window.scroll(0, 0);
+		GA4pageview();
+	} else {
+		// console.log('初回アクセス')
+		sessionStorage.setItem('visit', 'true'); // sessionStorageにデータを保存
+	}
+}
+
 // SPAにおいてページ遷移したことをGA4に伝える（=新規のpage_viewイベントを生成する）
 export function GA4pageview() {
 	const title = document.querySelector("title").innerHTML
@@ -19,7 +32,7 @@ export function GA4pageview() {
 	});
 }
 
-export function updateTitle(title) {
+function setTitle(title) {
 	document.querySelector("title").innerHTML = title;
 }
 

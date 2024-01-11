@@ -1,5 +1,6 @@
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { defineStore } from "pinia";
+import { calcBirthNumber } from "@/util";
 
 export const useGlobalStore = defineStore("global", () => {
 	const base_url = ref("http://cf161188.cloudfree.jp/nenga/");
@@ -250,6 +251,9 @@ export const useGlobalStore = defineStore("global", () => {
 	const birth_year = ref('')
 	const birth_month = ref('1')
 	const birth_day = ref('1')
+	const birthNumber = computed(() => {
+		return calcBirthNumber(birth_year.value, birth_month.value, birth_day.value);
+	});
 
-	return { base_url, year, GA4_ID, database, birth_year, birth_month, birth_day };
+	return { base_url, year, GA4_ID, database, birth_year, birth_month, birth_day, birthNumber };
 });
