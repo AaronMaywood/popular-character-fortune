@@ -246,5 +246,10 @@ export const useGlobalStore = defineStore("global", () => {
 		},
 	]);
 
-	return { base_url, year, GA4_ID, database };
+	// @/components/Enter.vue で使用する、誕生日入力欄 ... storeに持たせることにより、画面間を遷移しても値は保たれる
+	const birth_year = ref('')
+	const birth_month = ref('1')
+	const birth_day = ref('1')
+
+	return { base_url, year, GA4_ID, database, birth_year, birth_month, birth_day };
 });

@@ -1,20 +1,19 @@
 <script setup>
 import { ref } from "vue";
 import { isValidDateFormat } from "@/util";
+import { useGlobalStore } from "@/stores/global";
+
+const store = useGlobalStore();
 const emit = defineEmits(["go-fortune"]);
 
 const errorMessage = ref("");
-
-const year = ref('')
-const month = ref('1')
-const day = ref('1')
 
 function onSubmit(e) {
 	// .padStart() は 0埋めするのに使用
 	// See:
 	// https://gray-code.com/javascript/fill-numbers-with-zeros/
 	const isValid = isValidDateFormat(
-		`${year.value}-${month.value.toString().padStart(2, "0")}-${day.value
+		`${store.birth_year}-${store.birth_month.toString().padStart(2, "0")}-${store.birth_day
 			.toString()
 			.padStart(2, "0")}`
 	);
@@ -24,9 +23,9 @@ function onSubmit(e) {
 		errorMessage.value = "";
 		// 占い結果に遷移
 		emit("go-fortune", {
-			year: year.value,
-			month: month.value,
-			day: day.value,
+			year: store.birth_year,
+			month: store.birth_month,
+			day: store.birth_day,
 		});
 	}
 }
@@ -39,7 +38,7 @@ function onSubmit(e) {
 			<input
 				required="required"
 				type="text"
-				v-model="year"
+				v-model="store.birth_year"
 				name="year"
 				class="form-flam01"
 				placeholder="西暦4桁 例)1970"
@@ -50,7 +49,7 @@ function onSubmit(e) {
 		<p class="mb15">
 			<select
 				required="required"
-				v-model="month"
+				v-model="store.birth_month"
 				name="month"
 				class="form-flam02"
 			>
@@ -70,7 +69,7 @@ function onSubmit(e) {
 			月
 		</p>
 		<p>
-			<select required="required" v-model="day" name="day" class="form-flam02">
+			<select required="required" v-model="store.birth_day" name="day" class="form-flam02">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
