@@ -108,13 +108,3 @@ const fortune = (() => {
 		</div>
 	</div>
 </template>
-
-<style scoped>
-h1.error {
-	display: flex;
-	align-items: center;
-	height: 10rem;
-	font-size: 1.5rem;
-	color: white;
-}
-</style>

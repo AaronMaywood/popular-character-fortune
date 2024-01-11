@@ -7,9 +7,9 @@
 
 - 誕生日の入力画面と占いの結果画面からなり、それぞれ以下のURLで区別される
     - 入力画面
-        - https://localhost:5173/#
+        - https://localhost:5173/
     - 占いの結果画面
-        - https://localhost:5173/#01 〜 #09
+        - https://localhost:5173/result/1 〜 9
 
 - 各占い結果画面からの「もう一度占う」ボタンのサポート
 
@@ -34,9 +34,11 @@
         http://www.ainsophaur.jp/kouza/calcu-birthnumber1.html
         > 「年」「月」「日」の数字を一変に足した後、合計数から９の倍数を引き余りの数を出すと、その余りの数が誕生数
         > 余りの数が０になった場合は９
-    - [TODO] Jest を使ったユニットテスト
+    - Jest を使ったユニットテスト
+        > npm test
+        で実行可能
 
-- [TODO] キャッシュを防ぐためにrnd を挿入する？
+- [TODO] 昨年の結果が表示されてしまうというキャッシュによる不具合を防ぐためにURLにrnd を挿入する？
     print qq{<script>location.href='/result_2023_0${bn}.html?r=${rnd}';</script>};
 
 ## SNSボタンまわりのコーディング
@@ -107,6 +109,10 @@ u=https%3A%2F%2Fnenga.adjust.ne.jp%2F&amp;
 - 最初にアクセスしたページ（トップページもしくは占い結果画面）だけでなく、ページ遷移した場合の pave_view が全て記録される
     - GA4 の Debug View を用いて検証可能、そうするには index.html でGA4に対し {"debug_mode": true } とする
 
+関連情報:
+- Single Page ApplicationにGoogle Analyticsを設定してみた
+    - https://dev.classmethod.jp/articles/single-page-application-ga/
+
 ## 更新業務に関係するソースコード
 
 ```
@@ -114,13 +120,23 @@ u=https%3A%2F%2Fnenga.adjust.ne.jp%2F&amp;
 ├── public
 │   └── images ... 画像素材の差し替え
 └── src
-    ├── App.vue ... HTMLのテンプレートを修正する場合はこちら
-    ├── components
-    │   ├── Enter.vue ... （いじりません）
-    │   ├── Home.vue ... （いじりません）
-    │   ├── Result.vue ... （いじりません）
-    │   └── SNSButtons.vue ... （いじりません）
-    └── util.js	... 年や占いテキスト等のデータを更新
+    ├── App.vue
+    ├── components
+    │   ├── Enter.vue ... （いじりません）
+    │   ├── ErrorMessage.vue ... （いじりません）
+    │   ├── Footer.vue ... （いじりません）
+    │   ├── SNSButtons.vue ... （いじりません）
+    │   └── TryAgainButton.vue ... （いじりません）
+    ├── main.js ... （いじりません）
+    ├── pages
+    │   ├── 404NotFound.vue ... （いじりません）
+    │   ├── Home.vue ... （いじりません）
+    │   └── Result.vue ... （いじりません）
+    ├── router.js ... （いじりません）
+    ├── stores
+    │   └── global.js	... 年や占いテキスト等のデータを更新
+    ├── util.js ... （いじりません）
+    └── util.test.js ... （いじりません）
 ```
 
 ## ユニットテスト
