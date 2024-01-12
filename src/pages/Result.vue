@@ -25,8 +25,8 @@ const fortune = (() => {
 		setTitleAndPushGA4(`${store.year}年流行りキャラ占い 誕生数エラー:${birthNumber}`);
 	} else {
 		isError.value = false;
-		setTitleAndPushGA4(`${store.year}年流行りキャラ占い ${store.database[birthNumber - 1].title}`);
-		return store.database[birthNumber - 1];
+		setTitleAndPushGA4(`${store.year}年流行りキャラ占い ${store.fortune[birthNumber - 1].title}`);
+		return store.fortune[birthNumber - 1];
 	}
 })();
 </script>
